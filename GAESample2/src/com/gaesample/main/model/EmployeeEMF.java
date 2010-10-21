@@ -2,41 +2,44 @@ package com.gaesample.main.model;
 
 import java.util.Date;
 
-import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.google.appengine.api.datastore.Key;
-
 @Entity
 public class EmployeeEMF {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Key key;
+	private Long id;
 
-	@Basic
-	private final String firstName;
+	private String firstName;
 
-	@Basic
-	private final String lastName;
+	private String lastName;
 
-	@Basic
-	private final Date hireDate;
+	public Long getId() {
+		return id;
+	}
 
-	public EmployeeEMF(String firstName, String lastName, Date hireDate) {
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	private Date hireDate;
+
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
 
-	public Key getKey() {
-		return key;
-	}
-
-	public void setKey(Key key) {
-		this.key = key;
+	public EmployeeEMF() {
 	}
 
 	public String getFirstName() {
